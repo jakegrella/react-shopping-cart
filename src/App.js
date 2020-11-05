@@ -11,20 +11,22 @@ function App() {
 	const [products] = useState(data);
 	const [cart, setCart] = useState([]);
 
-	const addItem = item => {
+	console.log('cart', cart);
+	const addItem = (item) => {
 		// add the given item to the cart
+		setCart([...cart, item]);
 	};
 
 	return (
-		<div className="App">
+		<div className='App'>
 			<Navigation cart={cart} />
 
 			{/* Routes */}
-			<Route exact path="/">
+			<Route exact path='/'>
 				<Products products={products} addItem={addItem} />
 			</Route>
 
-			<Route path="/cart">
+			<Route path='/cart'>
 				<ShoppingCart cart={cart} />
 			</Route>
 		</div>
